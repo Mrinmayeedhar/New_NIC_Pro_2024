@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+
 @RestController
 public class DocumentController {
     private final DocumentService documentService;
@@ -38,7 +39,7 @@ public class DocumentController {
         System.out.println("received request for document ID: " + document_id);
         ResponseEntity<ClientDocument> document = documentService.getDocumentById(document_id);
 
-       return ResponseEntity.ok(document.getBody());
+        return ResponseEntity.ok(document.getBody());
     }
 
     @GetMapping("/documentofaperson/{personId}")
@@ -105,7 +106,7 @@ public class DocumentController {
     }
 
     @GetMapping("/vieweditlog/{applicationTransactionId}")
-    public ResponseEntity<ArchiveDocument> getArchiveDocumentByApplicationTransactionId(@PathVariable long applicationTransactionId) {
+    public ResponseEntity<ArchiveDocument> viewEditLog(@PathVariable long applicationTransactionId) {
         Optional<ArchiveDocument> archiveDocumentOptional = documentService.viewEditLog(applicationTransactionId);
 
         if (archiveDocumentOptional.isPresent()) {

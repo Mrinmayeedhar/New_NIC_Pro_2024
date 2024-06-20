@@ -173,7 +173,7 @@ public class DocumentService {
     }
 
 
-   //Viewing the edit logs
+    //Viewing the edit logs
     public Optional<ArchiveDocument> viewEditLog(long applicationTransactionId) {
         return archiveRepository.findByApplicationTransactionId(applicationTransactionId);
     }
@@ -239,3 +239,6 @@ public class DocumentService {
 
 
 }
+
+
+

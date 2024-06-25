@@ -1,5 +1,12 @@
 package com.project1.project.config;
 
+<<<<<<< HEAD
+=======
+//package com.RupakDoc.DMF.config;
+
+
+
+>>>>>>> f0ef1a13e33b6099d14eda616098ccedc778b692
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;

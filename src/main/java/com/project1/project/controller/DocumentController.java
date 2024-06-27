@@ -1,6 +1,5 @@
 package com.project1.project.controller;
 
-
 import com.project1.project.model.*;
 import com.project1.project.repository.DocumentRepository;
 import com.project1.project.service.DocumentService;
@@ -15,8 +14,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-
 @RestController
+@RequestMapping("/")
 public class DocumentController {
     private final DocumentService documentService;
     private final DocumentRepository documentRepository;
@@ -96,24 +95,18 @@ public class DocumentController {
         }
     }
 
-    @GetMapping("/viewreviewlog/{application_transaction_id}")
-    public ResponseEntity<Review> getReviewByApplicationId(@PathVariable long application_transaction_id) {
-        Optional<Review> reviewOptional = documentService.viewReviewLog(application_transaction_id);
+    @GetMapping("/viewreviewlog/{applicationTransactionId}")
+    public ResponseEntity<Review> getReviewByApplicationId(@PathVariable long applicationTransactionId) {
+        Optional<Review> reviewOptional = documentService.viewReviewLog(applicationTransactionId);
 
         return reviewOptional
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
-<<<<<<< HEAD
     @GetMapping("/vieweditlog/{applicationTransactionId}")
-    public ResponseEntity<ArchiveDocument> viewEditLog(@PathVariable long applicationTransactionId) {
+    public ResponseEntity<ArchiveDocument> getArchiveDocumentByApplicationTransactionId(@PathVariable long applicationTransactionId) {
         Optional<ArchiveDocument> archiveDocumentOptional = documentService.viewEditLog(applicationTransactionId);
-=======
-    @GetMapping("/vieweditlog/{application_transaction_id}")
-    public ResponseEntity<ArchiveDocument> getArchiveDocumentByApplicationTransactionId(@PathVariable long application_transaction_id) {
-        Optional<ArchiveDocument> archiveDocumentOptional = documentService.viewEditLog(application_transaction_id);
->>>>>>> f0ef1a13e33b6099d14eda616098ccedc778b692
 
         if (archiveDocumentOptional.isPresent()) {
             return ResponseEntity.ok(archiveDocumentOptional.get());
